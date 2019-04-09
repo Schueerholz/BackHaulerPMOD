@@ -1,0 +1,10 @@
+LIBRARY     BHPMODFIPSYLOADER
+EXPORTS
+Fipsy_Open 
+Fipsy_Close 
+Fipsy_ReadDeviceID 
+Fipsy_ReadUniqueID 
+Fipsy_EraseAll 
+Fipsy_LoadConfiguration 
+Fipsy_WriteFeatures 
+Fipsy_WriteConfiguration 

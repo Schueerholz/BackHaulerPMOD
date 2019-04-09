@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{003BDD54-B1A5-49EC-B009-CED639D172B1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>BhPmodApp.My.MyApplication</StartupObject>
+    <RootNamespace>BhPmodApp</RootNamespace>
+    <AssemblyName>BhPmodApp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>BhPmodApp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DocumentationFile>BhPmodApp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>acw_dark_bg.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>BhPmodApp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\Release\</OutputPath>
+    <DocumentationFile>BhPmodApp.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BhPmodApi.vb" />
+    <Compile Include="BhPmodFipsyLoader.vb" />
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_8LD.designer.vb">
+      <DependentUpon>frmDialog_8LD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_8LD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_ACCEL.designer.vb">
+      <DependentUpon>frmDialog_ACCEL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_ACCEL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_ALS.designer.vb">
+      <DependentUpon>frmDialog_ALS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_ALS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_BTN.Designer.vb">
+      <DependentUpon>frmDialog_BTN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_BTN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_COLOR.designer.vb">
+      <DependentUpon>frmDialog_COLOR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_COLOR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_COMPAIR.designer.vb">
+      <DependentUpon>frmDialog_COMPAIR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_COMPAIR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_DUALDAC.designer.vb">
+      <DependentUpon>frmDialog_DUALDAC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_DUALDAC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_FIPSY.designer.vb">
+      <DependentUpon>frmDialog_FIPSY.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_FIPSY.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_HUMITURE.designer.vb">
+      <DependentUpon>frmDialog_HUMITURE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_HUMITURE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_MRAM.designer.vb">
+      <DependentUpon>frmDialog_MRAM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_MRAM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_POTENTIOMETER.Designer.vb">
+      <DependentUpon>frmDialog_POTENTIOMETER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_POTENTIOMETER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_PRESSURE.designer.vb">
+      <DependentUpon>frmDialog_PRESSURE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_PRESSURE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_QUADDAC.designer.vb">
+      <DependentUpon>frmDialog_QUADDAC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_QUADDAC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_RFPWR.designer.vb">
+      <DependentUpon>frmDialog_RFPWR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_RFPWR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_RTC.designer.vb">
+      <DependentUpon>frmDialog_RTC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_RTC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_RTD.Designer.vb">
+      <DependentUpon>frmDialog_RTD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_RTD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_SDADC.designer.vb">
+      <DependentUpon>frmDialog_SDADC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_SDADC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_THERMISTOR.designer.vb">
+      <DependentUpon>frmDialog_THERMISTOR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_THERMISTOR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_TMP2.designer.vb">
+      <DependentUpon>frmDialog_TMP2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_TMP2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_TRILED.designer.vb">
+      <DependentUpon>frmDialog_TRILED.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_TRILED.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialog_USBUART.Designer.vb">
+      <DependentUpon>frmDialog_USBUART.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialog_USBUART.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="NumAndStr.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_8LD.resx">
+      <DependentUpon>frmDialog_8LD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_ACCEL.resx">
+      <DependentUpon>frmDialog_ACCEL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_ALS.resx">
+      <DependentUpon>frmDialog_ALS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_BTN.resx">
+      <DependentUpon>frmDialog_BTN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_COLOR.resx">
+      <DependentUpon>frmDialog_COLOR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_COMPAIR.resx">
+      <DependentUpon>frmDialog_COMPAIR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_DUALDAC.resx">
+      <DependentUpon>frmDialog_DUALDAC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_FIPSY.resx">
+      <DependentUpon>frmDialog_FIPSY.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_HUMITURE.resx">
+      <DependentUpon>frmDialog_HUMITURE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_MRAM.resx">
+      <DependentUpon>frmDialog_MRAM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_POTENTIOMETER.resx">
+      <DependentUpon>frmDialog_POTENTIOMETER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_PRESSURE.resx">
+      <DependentUpon>frmDialog_PRESSURE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_QUADDAC.resx">
+      <DependentUpon>frmDialog_QUADDAC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_RFPWR.resx">
+      <DependentUpon>frmDialog_RFPWR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_RTC.resx">
+      <DependentUpon>frmDialog_RTC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_RTD.resx">
+      <DependentUpon>frmDialog_RTD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_SDADC.resx">
+      <DependentUpon>frmDialog_SDADC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_THERMISTOR.resx">
+      <DependentUpon>frmDialog_THERMISTOR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_TMP2.resx">
+      <DependentUpon>frmDialog_TMP2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_TRILED.resx">
+      <DependentUpon>frmDialog_TRILED.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialog_USBUART.resx">
+      <DependentUpon>frmDialog_USBUART.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="acw_dark_bg.ico" />
+    <Content Include="acw_transparent_bg.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

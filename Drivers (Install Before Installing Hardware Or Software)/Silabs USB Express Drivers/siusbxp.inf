@@ -1,0 +1,112 @@
+;/*++
+;
+;Module Name:
+;
+;    SLABWinUSB.INF
+;
+;    Copyright 2013-2015, Silicon Laboratories Inc.
+;
+;Abstract:
+;    Installation INF for Silicon Labs USBXpress device WinUSB driver
+;
+;--*/
+
+[Version]
+Signature = "$Windows NT$"
+Class=USB
+ClassGUID={36fc9e60-c465-11cf-8056-444553540000}
+Provider = %Provider%
+DriverVer=11/06/2015,6.7.2.0
+CatalogFile=siusbxp.cat
+
+; ========== Manufacturer/Models sections ===========
+
+[Manufacturer]
+%ManufacturerName% = SiLabsModelsSection,NTx86,NTamd64
+
+[SiLabsModelsSection.NTx86]
+%USB\VID_10C4&PID_EA61.DeviceDesc% =USB_Install, USB\VID_10C4&PID_EA61
+%USB\VID_10C4&PID_EA61&MI_00.DeviceDesc% =USB_Install, USB\VID_10C4&PID_EA61&MI_00
+%USB\VID_10C4&PID_EA61&MI_01.DeviceDesc% =USB_Install, USB\VID_10C4&PID_EA61&MI_01
+%USB\VID_10C4&PID_EA61&MI_02.DeviceDesc% =USB_Install, USB\VID_10C4&PID_EA61&MI_02
+%USB\VID_10C4&PID_EA61&MI_03.DeviceDesc% =USB_Install, USB\VID_10C4&PID_EA61&MI_03
+
+[SiLabsModelsSection.NTamd64]
+%USB\VID_10C4&PID_EA61.DeviceDesc% =USB_Install, USB\VID_10C4&PID_EA61
+%USB\VID_10C4&PID_EA61&MI_00.DeviceDesc% =USB_Install, USB\VID_10C4&PID_EA61&MI_00
+%USB\VID_10C4&PID_EA61&MI_01.DeviceDesc% =USB_Install, USB\VID_10C4&PID_EA61&MI_01
+%USB\VID_10C4&PID_EA61&MI_02.DeviceDesc% =USB_Install, USB\VID_10C4&PID_EA61&MI_02
+%USB\VID_10C4&PID_EA61&MI_03.DeviceDesc% =USB_Install, USB\VID_10C4&PID_EA61&MI_03
+
+; =================== Installation ===================
+
+[USB_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+[USB_Install.Services]
+Include=winusb.inf
+;Needs   = WINUSB.NT.Services
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\winusb.sys
+
+[USB_Install.Wdf]
+KmdfService=WINUSB, WinUSB_Install
+
+[USB_Install.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{3C5E1462-5695-4e18-876B-F3F3D08AAF18}"
+
+[USB_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.9
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallers_CopyFiles]
+WdfCoInstaller01009.dll
+WinUSBCoInstaller2.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+; ================= Source Media Section =====================
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\x86
+2 = %DISK_NAME%,,,\x64
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller2.dll=1
+WdfCoInstaller01009.dll=1
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller2.dll=2
+WdfCoInstaller01009.dll=2
+
+; =================== Strings ===================
+
+[Strings]
+Provider="Silicon Laboratories Inc."
+ManufacturerName="Silicon Labs"
+USB\VID_10C4&PID_87A0.DeviceDesc="Silicon Labs CP2130 USB to SPI Bridge"
+USB\VID_10C4&PID_EA61.DeviceDesc="USBXpress Device"
+USB\VID_10C4&PID_EA61&MI_00.DeviceDesc="USBXpress Device: Interface 0"
+USB\VID_10C4&PID_EA61&MI_01.DeviceDesc="USBXpress Device: Interface 1"
+USB\VID_10C4&PID_EA61&MI_02.DeviceDesc="USBXpress Device: Interface 2"
+USB\VID_10C4&PID_EA61&MI_03.DeviceDesc="USBXpress Device: Interface 3"
+CP2130_SvcDesc="Silicon Labs CP2130 USB to SPI Bridge"
+WinUSB_SvcDesc="USBXpress WinUSB Service"
+DISK_NAME="Silicon Labs USBXpress Driver Installation Disk"

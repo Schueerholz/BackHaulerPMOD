@@ -1,0 +1,15 @@
+LIBRARY     BHPMODAPI
+EXPORTS
+BHPMOD_GetStatus
+BHPMOD_SetConfiguration 
+BHPMOD_SetPinDrive 
+BHPMOD_SetPinState 
+BHPMOD_GetPinState 
+BHPMOD_SPI_SetClockPhase 
+BHPMOD_SPI_Transaction 
+BHPMOD_I2C_Write 
+BHPMOD_I2C_Read 
+BHPMOD_SERIAL_Print
+BHPMOD_SERIAL_Write 
+BHPMOD_SERIAL_Read 
+BHPMOD_TestCode
