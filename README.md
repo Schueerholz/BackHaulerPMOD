@@ -10,7 +10,7 @@ This repository contains an open source project supporting the BackHauler PMOD, 
 
 To get started, download or clone the repository and explore the folders. The BackHauler PMOD should have arrived already configured with the latest firmware. Install the Silicon Labs drivers from *Drivers* folder. Connect the BackHauler PMOD to a USB port. Run the installation executable from the *Application Installer* folder. The BackHauler PMOD should be ready to use.  
 
-# About The Silcon Labs Drivers 
+# About The Silicon Labs Drivers 
 
 The repository includes the Silicon Labs USB Express drivers from the USB Express SDK materials, which are freely available from the Silicon Labs website, but are included here in order to preserve a complete image of what was used to compile and test the associated code. It might be advisable to visit www.silabs.com to locate the latest USB Express SDK. Historically, newer versions have required a driver update, replacement of libraries and header files in the code base, and a recompile, but little else.
 
