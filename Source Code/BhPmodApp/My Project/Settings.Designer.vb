@@ -53,6 +53,30 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property PMODPeripheralIndex() As Integer
+            Get
+                Return CType(Me("PMODPeripheralIndex"),Integer)
+            End Get
+            Set
+                Me("PMODPeripheralIndex") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property JEDECFileName() As String
+            Get
+                Return CType(Me("JEDECFileName"),String)
+            End Get
+            Set
+                Me("JEDECFileName") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

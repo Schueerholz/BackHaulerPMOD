@@ -7,33 +7,37 @@
 '
 '---------------------------------------------------------------------------------------
 
+Imports BhPmodApp.My
+
 Public Class Form1
 
-'This class forms the main program and the commuter module for Form1 controls
+    'This class forms the main program and the commuter module for Form1 controls
 
-'---------------------------------------------------------------------------------------
-'Public Variables
-'---------------------------------------------------------------------------------------
+    '---------------------------------------------------------------------------------------
+    'Public Variables
+    '---------------------------------------------------------------------------------------
 
 
-'---------------------------------------------------------------------------------------
-'Module Entry And Exit Functions
-'---------------------------------------------------------------------------------------
+    '---------------------------------------------------------------------------------------
+    'Module Entry And Exit Functions
+    '---------------------------------------------------------------------------------------
 
-'Form1_Load is set as the application entry point
-Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
- Dim status As Byte
+    'Form1_Load is set as the application entry point
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim status As Byte
+        Dim PMODPeripheralIndex As Integer
 
- 'On Error GoTo FLERR
+        'On Error GoTo FLERR
 
- 'Accessing the API will load the library and open the driver
- 'This startup activity also performs and configuration and initialization associted with it
- 'The entry is coded to open devices on the SPI bridge as well
- If (BHPMOD_GetStatus(status) <> 1) Then GoTo FLERR
+        'Accessing the API will load the library and open the driver
+        'This startup activity also performs and configuration and initialization associted with it
+        'The entry is coded to open devices on the SPI bridge as well
+        If (BHPMOD_GetStatus(status) <> 1) Then GoTo FLERR
 
- 'Show our display and wait a little while longer for the sensor configuration to be done
- ComboBox_SelectPMODPeripheral.SelectedIndex = 0
- Me.Show()
+        'Show our display and wait a little while longer for the sensor configuration to be done
+        PMODPeripheralIndex = My.Settings.PMODPeripheralIndex
+        ComboBox_SelectPMODPeripheral.SelectedIndex = PMODPeripheralIndex ' Pre-select users last selection
+        Me.Show()
 
  'Set the initial configuration to agree with the display being formed
  ConfigurePassive()
@@ -54,17 +58,17 @@ End Sub
 'Form1_Unload allows for cleanup before the application exits
 'Most things are cleaned up automatically, but there are often unique needs too
 Private Sub Form1_UnLoad(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.FormClosing
+        My.Settings.Save()
+    End Sub
 
-End Sub
+    '---------------------------------------------------------------------------------------
+    'Handler For Polling Timer
+    '---------------------------------------------------------------------------------------
 
-'---------------------------------------------------------------------------------------
-'Handler For Polling Timer
-'---------------------------------------------------------------------------------------
-
-'When enabled, the timer event is set to occur periodically, about one or two times a second
-'This event monitors the health of the test set and pushes the testing forward 
-'where the operator is not involved
-Private Sub PollTimer_Tick(sender As Object, e As EventArgs) Handles PollTimer.Tick
+    'When enabled, the timer event is set to occur periodically, about one or two times a second
+    'This event monitors the health of the test set and pushes the testing forward 
+    'where the operator is not involved
+    Private Sub PollTimer_Tick(sender As Object, e As EventArgs) Handles PollTimer.Tick
  Dim status As Byte
 
  'See if the test set is still there, and if not it is time to leave
@@ -279,4 +283,7 @@ Private Sub Button_OpenDialog_Click(sender As Object, e As EventArgs) Handles Bu
  Dialog.Dispose()
 End Sub
 
+    Private Sub ComboBox_SelectPMODPeripheral_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_SelectPMODPeripheral.SelectedIndexChanged
+        My.Settings.PMODPeripheralIndex = ComboBox_SelectPMODPeripheral.SelectedIndex
+    End Sub
 End Class
